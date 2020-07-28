@@ -91,5 +91,3 @@ def getGCPLength(aI, gs1Key):
 
 
 
-# gtin = "04012345123456" # (Prefix: 401, gcpLength: 7)
-# gtin = "09999999999994" # (No prefix available - throws error message)
