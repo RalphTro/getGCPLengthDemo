@@ -11,11 +11,11 @@ The length of the GCP can vary (in the case of RFID tags, between 6 and 12 digit
 ## Example: SGTIN
 For instance, if you need to encode a serialised GTIN (Global Trade Item Number) on an RFID tag, the binary string requires you to indicate the partition value (determining the number of decimal digits of the GCP):
 
-<img src="./images/sgtinCodingTable.jpg">
+![SGTIN Coding Table](images/sgtinTranslation.jpeg)
 
 Likewise, if you need to capture or query for EPCIS events in an EPCIS repository leveraging EPC URIs, you e.g. need to separate the GCP from the rest of the key when translating it from the corresponding GS1 element strings:  
 
-![SGTIN Translation](images/sgtinTranslation.jpg)
+![SGTIN Translation](images/sgtinTranslation.jpeg)
 
 ## IMPORTANT NOTES
 
