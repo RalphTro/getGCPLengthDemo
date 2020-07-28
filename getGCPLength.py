@@ -1,0 +1,118 @@
+#! /usr/bin/env python3
+
+# Version 1.0.0
+# Last update: 2020-07-23
+
+from re import match
+from gtin import GTIN
+import requests
+import json
+
+'''
+Function 'getGCPLength' expects a GS1 Key, prepended with its corresponding GS1 Application Identifier, and returns the corresponding GS1 Company Prefix (GCP) length.
+Thereby, the function triggers an online lookup at GS1's GCP length table residing at https://www.gs1.org/sites/default/files/docs/gcp_length/gcpprefixformatlist.json
+
+IMPORTANT: this software module was developed for DEMONSTRATION purposes only. It is NOT RECOMMENDED implementing it 1:1 in a productive environment.
+Particularly, I recommend companies to use a local copy of the GCP Length Table (which may include own entries) that is updated in regular (e.g. daily) intervals.
+The latter approach is faster and far more efficient than triggering an online lookup every time the function is called. 
+In this regard, note that the GCP length table at the time of writing this software (July 2020) already is > 5 MB in size.
+
+The function supports all GS1 Keys that are applicable to construct EPC values, specifically: 
+SSCC, GTIN, GDTI, GCN, GINC, GSIN, GLN (for parties and physical locations), GRAI, GIAI, ITIP, CPID, GSRN-P, and GSRN.
+
+'''
+
+gs1KeyRegEx = {
+    '00': "^(\d{18})$",
+    '01': "^(\d{14})$",
+    '253': "^(\d{13})([\x21-\x22\x25-\x2F\x30-\x39\x3A-\x3F\x41-\x5A\x5F\x61-\x7A]{0,17})$",
+    '255': "^(\d{13})(\d{0,12})$",
+    '401': "^([\x21-\x22\x25-\x2F\x30-\x39\x3A-\x3F\x41-\x5A\x5F\x61-\x7A]{0,30})$",
+    '402': "^(\d{17})$",
+    '414': "^(\d{13})$",
+    '417': "^(\d{13})$",
+    '8003': "^(\d{14})([\x21-\x22\x25-\x2F\x30-\x39\x3A-\x3F\x41-\x5A\x5F\x61-\x7A]{0,16})$",
+    '8004': "^([\x21-\x22\x25-\x2F\x30-\x39\x3A-\x3F\x41-\x5A\x5F\x61-\x7A]{0,30})$",
+    '8006': "^(\d{14})(\d{2})(\d{2})$",
+    '8010': "^([\x23\x2D\x2F\x30-\x39\x41-\x5A]{0,30})$",
+    '8017': "^(\d{18})$",
+    '8018': "^(\d{18})$"
+}
+
+keyStartsWithGCP = {
+    '00': False,
+    '01': False,
+    '253': True,
+    '255': True,
+    '401': True,
+    '402': True,
+    '414': True,
+    '417': True,
+    '8003': False,
+    '8004': True,
+    '8006': False,
+    '8010': True,
+    '8017': True,
+    '8018': True
+}
+
+# Fetch GCP Length Table data from GS1 Website:
+allGCPs = json.loads(requests.get(
+    'https://www.gs1.org/sites/default/files/docs/gcp_length/gcpprefixformatlist.json').text)
+
+# Transform JSON structure into list of dictionaries:
+gcpDict = allGCPs["GCPPrefixFormatList"]["entry"]
+
+
+def getGCPLength(aI, gs1Key):
+    # Variables storing identified gcp length and specifying prefix length/search string
+    gcpLength = ""
+    j = 12
+    # Normalise input string so that function works consistently for all GS1 keys
+    if (keyStartsWithGCP[aI] == True):
+        gs1Key = '0' + gs1Key
+    # Check if there are matching 12-digit prefix values. If not, iterate further (i.e. decrease GCP length) until there is a match.
+    # Then, return corresponding GCP Length Value
+    while (j > 2 and not gcpLength):  # 'not' checks if gcpLength is an empty string (yes/no)
+        for i in range(len(gcpDict)):
+            if (len(gcpDict[i]["prefix"]) == j and gcpDict[i]["prefix"] in gs1Key[1:(j+1)]):
+                gcpLength = gcpDict[i]["gcpLength"]
+                return (gcpLength)
+            else:
+                continue
+        j -= 1
+    if not gcpLength:
+        return ('There is no matching value. Try GEPIR (https://gepir.gs1.org/) or contact local GS1 MO.')
+
+
+testGS1Key = "04012345123456"
+testAI = "01"
+
+print(gs1KeyRegEx["01"])
+
+if match(r'^(\d{14})$', testGS1Key) is not None:
+    print("entspricht regex")
+else:
+    print("entspricht NICHT regEx")
+
+
+print (getGCPLength('00', '340123453111111115'))
+"""  
+
+print (getGCPLength('04012345123456', '01'))
+print (getGCPLength('253', '4602443000331XYZ'))
+print (getGCPLength('255', '0811625999996554433'))
+print (getGCPLength('414', '4226350800008'))
+print (getGCPLength('417', '4280000000002'))
+print (getGCPLength('8003', '03870585000552987'))
+print (getGCPLength('8004', '0180451111ABC987'))
+print (getGCPLength('8010', '0628165987'))
+print (getGCPLength('8017', '440018922222222226'))
+print (getGCPLength('8018', '385888700111111111'))
+"""
+
+# TODOS:
+# RegEx for all keys (Dict key, regex)
+
+# gtin = "04012345123456" # (Prefix: 401, gcpLength: 7)
+# gtin = "09999999999994" # (No prefix available - throws error message)
