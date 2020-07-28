@@ -1,7 +1,6 @@
 #! /usr/bin/env python3
 
 # Version 1.0.0
-# Last update: 2020-07-23
 
 from re import match
 import requests
@@ -88,6 +87,3 @@ def getGCPLength(aI, gs1Key):
     if not gcpLength:
         return ('There is no matching value. Try GEPIR (https://gepir.gs1.org/) or contact local GS1 MO.')
         exit()
-
-
-
