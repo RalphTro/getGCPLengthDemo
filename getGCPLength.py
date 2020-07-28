@@ -4,7 +4,6 @@
 # Last update: 2020-07-23
 
 from re import match
-from gtin import GTIN
 import requests
 import json
 
@@ -65,6 +64,10 @@ gcpDict = allGCPs["GCPPrefixFormatList"]["entry"]
 
 
 def getGCPLength(aI, gs1Key):
+    # Check if GS1 Key complies with its corresponding RegEx
+    if match(gs1KeyRegEx[aI], gs1Key) is None:
+        break
+        #return ('The GS1 Key has an incorrect length or impermissible characters.')
     # Variables storing identified gcp length and specifying prefix length/search string
     gcpLength = ""
     j = 12
@@ -84,22 +87,25 @@ def getGCPLength(aI, gs1Key):
     if not gcpLength:
         return ('There is no matching value. Try GEPIR (https://gepir.gs1.org/) or contact local GS1 MO.')
 
-
-testGS1Key = "04012345123456"
+""" 
+testGS1Key = "040123451234567"
 testAI = "01"
 
-print(gs1KeyRegEx["01"])
+#print(gs1KeyRegEx["01"])
 
-if match(r'^(\d{14})$', testGS1Key) is not None:
+#if match(r'^(\d{14})$', testGS1Key) is not None:
+if match(gs1KeyRegEx[testAI], testGS1Key) is not None:
     print("entspricht regex")
 else:
     print("entspricht NICHT regEx")
+ """
+
 
 
 print (getGCPLength('00', '340123453111111115'))
 """  
 
-print (getGCPLength('04012345123456', '01'))
+print (getGCPLength('01', '04012345123456'))
 print (getGCPLength('253', '4602443000331XYZ'))
 print (getGCPLength('255', '0811625999996554433'))
 print (getGCPLength('414', '4226350800008'))
