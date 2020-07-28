@@ -10,6 +10,7 @@ import json
 '''
 Function 'getGCPLength' expects a GS1 Key, prepended with its corresponding GS1 Application Identifier, and returns the corresponding GS1 Company Prefix (GCP) length.
 Thereby, the function triggers an online lookup at GS1's GCP length table residing at https://www.gs1.org/sites/default/files/docs/gcp_length/gcpprefixformatlist.json
+Prior to that, it also performs a basic syntax check.
 
 IMPORTANT: this software module was developed for DEMONSTRATION purposes only. It is NOT RECOMMENDED implementing it 1:1 in a productive environment.
 Particularly, I recommend companies to use a local copy of the GCP Length Table (which may include own entries) that is updated in regular (e.g. daily) intervals.
@@ -66,8 +67,8 @@ gcpDict = allGCPs["GCPPrefixFormatList"]["entry"]
 def getGCPLength(aI, gs1Key):
     # Check if GS1 Key complies with its corresponding RegEx
     if match(gs1KeyRegEx[aI], gs1Key) is None:
-        break
-        #return ('The GS1 Key has an incorrect length or impermissible characters.')
+        return ('The GS1 Key has an incorrect length or impermissible characters.')
+        exit()
     # Variables storing identified gcp length and specifying prefix length/search string
     gcpLength = ""
     j = 12
@@ -86,39 +87,9 @@ def getGCPLength(aI, gs1Key):
         j -= 1
     if not gcpLength:
         return ('There is no matching value. Try GEPIR (https://gepir.gs1.org/) or contact local GS1 MO.')
-
-""" 
-testGS1Key = "040123451234567"
-testAI = "01"
-
-#print(gs1KeyRegEx["01"])
-
-#if match(r'^(\d{14})$', testGS1Key) is not None:
-if match(gs1KeyRegEx[testAI], testGS1Key) is not None:
-    print("entspricht regex")
-else:
-    print("entspricht NICHT regEx")
- """
+        exit()
 
 
-
-print (getGCPLength('00', '340123453111111115'))
-"""  
-
-print (getGCPLength('01', '04012345123456'))
-print (getGCPLength('253', '4602443000331XYZ'))
-print (getGCPLength('255', '0811625999996554433'))
-print (getGCPLength('414', '4226350800008'))
-print (getGCPLength('417', '4280000000002'))
-print (getGCPLength('8003', '03870585000552987'))
-print (getGCPLength('8004', '0180451111ABC987'))
-print (getGCPLength('8010', '0628165987'))
-print (getGCPLength('8017', '440018922222222226'))
-print (getGCPLength('8018', '385888700111111111'))
-"""
-
-# TODOS:
-# RegEx for all keys (Dict key, regex)
 
 # gtin = "04012345123456" # (Prefix: 401, gcpLength: 7)
 # gtin = "09999999999994" # (No prefix available - throws error message)
