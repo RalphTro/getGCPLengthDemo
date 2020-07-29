@@ -20,7 +20,7 @@ Likewise, if you need to capture or query for EPCIS events in an EPCIS repositor
 ## IMPORTANT NOTES
 
 * This software module was developed for DEMONSTRATION purposes only. It is NOT RECOMMENDED implementing it 1:1 in a productive environment. For this reason, it is deliberately not provided as an official package via the Python Packaging Index (PyPI).
-* Particularly, I recommend companies to use a local copy of the GCP Length Table (which may include own entries) that is updated in regular (e.g. daily) intervals.
+* Particularly, I recommend companies to use a local copy of the GCP Length Table that is updated in regular (e.g. daily) intervals. If companies also have a separate file containing own GCP length entries, the latter should ideally be (a) formatted similarly and (b) kept separately to ease maintenance of the two files.
 * The latter approach is faster and far more efficient than triggering an online lookup every time the function is called (as this demo software does). In this regard, note that the GCP length table (.json) at the time of writing this software (July 2020) already is > 5 MB in size.
 * The function supports all GS1 Keys that are applicable to construct EPC values, specifically: 
 SSCC, GTIN, GDTI, GCN, GINC, GSIN, GLN (for parties and physical locations), GRAI, GIAI, ITIP, CPID, GSRN-P, and GSRN.
