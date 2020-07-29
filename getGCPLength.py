@@ -66,8 +66,7 @@ gcpDict = allGCPs["GCPPrefixFormatList"]["entry"]
 def getGCPLength(aI, gs1Key):
     # Check if GS1 Key complies with its corresponding RegEx
     if match(gs1KeyRegEx[aI], gs1Key) is None:
-        return ('The GS1 Key has an incorrect length or impermissible characters.')
-        exit()
+        exit('The GS1 Key has an incorrect length or impermissible characters.')
     # Variables storing identified gcp length and specifying prefix length/search string
     gcpLength = ""
     j = 12
@@ -85,5 +84,4 @@ def getGCPLength(aI, gs1Key):
                 continue
         j -= 1
     if not gcpLength:
-        return ('There is no matching value. Try GEPIR (https://gepir.gs1.org/) or contact local GS1 MO.')
-        exit()
+        exit('There is no matching value. Try GEPIR (https://gepir.gs1.org/) or contact local GS1 MO.')
