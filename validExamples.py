@@ -4,8 +4,6 @@ import getGCPLength as gcl
 
 print (gcl.getGCPLength('00', '340123453111111115'))
 print (gcl.getGCPLength('01', '04012345123456'))
-print (gcl.getGCPLength('00', '340123453111111115'))
-print (gcl.getGCPLength('01', '04012345123456'))
 print (gcl.getGCPLength('253', '4602443000331XYZ'))
 print (gcl.getGCPLength('255', '0811625999996554433'))
 print (gcl.getGCPLength('414', '4226350800008'))
@@ -29,5 +27,4 @@ Expected results:
 8
 7
 9
-7
 """
