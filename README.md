@@ -1,4 +1,4 @@
-# getGCPLengthDemo
+# GET GS1 Company Prefix (GCP) Length
 
 This is a simple DEMO SOFTWARE intended to illustrate how to apply GS1's GCP (GS1 Company Prefix) Length Table (available either in XML or JSON) residing at https://www.gs1.org/standards/bc-epc-interop.
 
