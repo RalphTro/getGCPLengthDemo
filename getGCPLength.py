@@ -65,7 +65,7 @@ allGCPs = json.loads(requests.get(
 gcpDict = allGCPs["GCPPrefixFormatList"]["entry"]
 
 def getGCPLength(aI, gs1Key):
-    """Returns the length of a given GS1 Key.
+    """Function determines the GCP length of a given GS1 Key.
 
     Function 'getGCPLength' expects a GS1 Key, prepended with its corresponding
     GS1 Application Identifier, and returns the corresponding GS1 Company Prefix (GCP) length.
@@ -87,7 +87,6 @@ def getGCPLength(aI, gs1Key):
     str 
         Human readable error message.
     """
-
     # Check if GS1 Key complies with its corresponding RegEx
     if match(gs1KeyRegEx[aI], gs1Key) is None:
         exit('The GS1 Key has an incorrect length or impermissible characters.')
