@@ -65,8 +65,10 @@ gcpDict = allGCPs["GCPPrefixFormatList"]["entry"]
 def getGCPLength(aI, gs1Key):
     """Returns the length of a given GS1 Key.
 
-    Function 'getGCPLength' expects a GS1 Key, prepended with its corresponding GS1 Application Identifier, and returns the corresponding GS1 Company Prefix (GCP) length.
-    hereby, the function triggers an online lookup at GS1's GCP length table residing at https://www.gs1.org/sites/default/files/docs/gcp_length/gcpprefixformatlist.json
+    Function 'getGCPLength' expects a GS1 Key, prepended with its corresponding
+    GS1 Application Identifier, and returns the corresponding GS1 Company Prefix (GCP) length.
+    Thereby, the function triggers an online lookup at GS1's GCP length table residing at
+    https://www.gs1.org/sites/default/files/docs/gcp_length/gcpprefixformatlist.json. 
     Prior to that, it also performs a basic syntax check.
     
     Parameters
@@ -93,7 +95,8 @@ def getGCPLength(aI, gs1Key):
     # Normalise input string so that function works consistently for all GS1 keys
     if (keyStartsWithGCP[aI] == True):
         gs1Key = '0' + gs1Key
-    # Check if there are matching 12-digit prefix values. If not, iterate further (i.e. decrease GCP length) until there is a match.
+    # Check if there are matching 12-digit prefix values. 
+    # If not, iterate further (i.e. decrease GCP length) until there is a match.
     # Then, return corresponding GCP Length Value
     while (j > 2 and not gcpLength):  # 'not' checks if gcpLength is an empty string (yes/no)
         for i in range(len(gcpDict)):
