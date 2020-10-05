@@ -67,7 +67,22 @@ def getGCPLength(aI, gs1Key):
 
     Function 'getGCPLength' expects a GS1 Key, prepended with its corresponding GS1 Application Identifier, and returns the corresponding GS1 Company Prefix (GCP) length.
     hereby, the function triggers an online lookup at GS1's GCP length table residing at https://www.gs1.org/sites/default/files/docs/gcp_length/gcpprefixformatlist.json
-    Prior to that, it also performs a basic syntax check."""
+    Prior to that, it also performs a basic syntax check.
+    
+    Parameters
+    ----------
+    aI : str
+        The GS1 Application Identifier (AI) of the GS1 Key.
+    gs1Key : str
+        The value of the GS1 Key.
+
+    Returns
+    -------
+    int
+        The length of the GS1 Company Prefix.
+    str 
+        Human readable error message.
+    """
 
     # Check if GS1 Key complies with its corresponding RegEx
     if match(gs1KeyRegEx[aI], gs1Key) is None:
