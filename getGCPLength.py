@@ -1,5 +1,6 @@
 #! /usr/bin/env python3
-"""Get GS1 Company Prefix (GCP) Length.
+"""
+Get GS1 Company Prefix (GCP) Length.
 
 IMPORTANT: this script was developed for DEMONSTRATION purposes only. 
 It is NOT RECOMMENDED implementing it 1:1 in a productive environment.
@@ -15,7 +16,8 @@ In this regard, note that the GCP length table at the time of writing this softw
 (July 2020) already is > 5 MB in size.
 The function supports all GS1 Keys applicable to construct EPC values, specifically: 
 SSCC, GTIN, GDTI, GCN, GINC, GSIN, GLN (for parties and physical locations), 
-GRAI, GIAI, ITIP, CPID, GSRN-P, and GSRN."""
+GRAI, GIAI, ITIP, CPID, GSRN-P, and GSRN.
+"""
 
 from re import match
 import requests
