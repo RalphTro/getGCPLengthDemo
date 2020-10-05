@@ -2,6 +2,8 @@
 
 import getGCPLength as gcl
 
+## Valid examples 
+
 print (gcl.getGCPLength('00', '340123453111111115'))
 print (gcl.getGCPLength('01', '04150999999994'))
 print (gcl.getGCPLength('253', '4602443000331XYZ'))
@@ -32,3 +34,15 @@ Expected results:
 7
 9
 """
+
+## Invalid examples 
+
+# SSCC has 17 instead of 18 characters
+# print (gcl.getGCPLength('00', '34012345311111111'))
+# Expected result:
+# The GS1 Key has an incorrect length or impermissible characters.
+
+# No prefix available
+# print (gcl.getGCPLength('01', '09999999999994'))
+# Expected result:
+# There is no matching value. Try GEPIR (https://gepir.gs1.org/) or contact local GS1 MO.
