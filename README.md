@@ -36,7 +36,7 @@ Run the examples via
 pip3 install -r requirements.txt
 python3 validExamples.py
 ```
-See `validExamples.py` (or invalidExamples.py, respectively) for how to use the script.
+See `validExamples.py` (or `invalidExamples.py`, respectively) for how to use the script.
 
 ## License
 
