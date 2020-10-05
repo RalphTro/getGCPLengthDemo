@@ -31,7 +31,7 @@ SSCC, GTIN, GDTI, GCN, GINC, GSIN, GLN (for parties and physical locations), GRA
 * GS1 RFID/Barcode Interoperability Guideline, Release 1.1, Ratified, Nov 2016, https://www.gs1.org/standards/bc-epc-interop
 
 ## Usage
-Run the examples via
+You can run the examples via your terminal with:
 ```
 pip3 install -r requirements.txt
 python3 validExamples.py
