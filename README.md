@@ -30,6 +30,14 @@ SSCC, GTIN, GDTI, GCN, GINC, GSIN, GLN (for parties and physical locations), GRA
 * EPC Tag Data Standard, Release 1.13, Ratified, Nov 2019, https://www.gs1.org/standards/epcrfid-epcis-id-keys/epc-rfid-tds/1-13
 * GS1 RFID/Barcode Interoperability Guideline, Release 1.1, Ratified, Nov 2016, https://www.gs1.org/standards/bc-epc-interop
 
+## Usage
+Run the examples via
+```
+pip3 install -r requirements.txt
+python3 validExamples.py
+```
+See `validExamples.py` (or invalidExamples.py, respectively) for how to use the script.
+
 ## License
 
 <img alt="MIT" style="border-width:0" src="https://opensource.org/files/OSIApproved_1.png" width="150px;"/><br />
