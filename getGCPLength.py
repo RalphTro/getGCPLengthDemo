@@ -1,25 +1,25 @@
 #! /usr/bin/env python3
+"""Get GS1 Company Prefix (GCP) Length.
 
-# Version 1.0.0
+IMPORTANT: this script was developed for DEMONSTRATION purposes only. 
+It is NOT RECOMMENDED implementing it 1:1 in a productive environment.
+Particularly, I recommend companies to use a local copy of the GCP Length Table 
+that is updated in regular (e.g. daily) intervals. 
+If companies also have a separate file containing own GCP length entries, 
+the latter should ideally be 
+(a) formatted similarly and 
+(b) kept separately to ease maintenance of the two files.
+The latter approach is faster and far more efficient than triggering an online 
+lookup every time the function is called. 
+In this regard, note that the GCP length table at the time of writing this software
+(July 2020) already is > 5 MB in size.
+The function supports all GS1 Keys applicable to construct EPC values, specifically: 
+SSCC, GTIN, GDTI, GCN, GINC, GSIN, GLN (for parties and physical locations), 
+GRAI, GIAI, ITIP, CPID, GSRN-P, and GSRN."""
 
 from re import match
 import requests
 import json
-
-'''
-Function 'getGCPLength' expects a GS1 Key, prepended with its corresponding GS1 Application Identifier, and returns the corresponding GS1 Company Prefix (GCP) length.
-Thereby, the function triggers an online lookup at GS1's GCP length table residing at https://www.gs1.org/sites/default/files/docs/gcp_length/gcpprefixformatlist.json
-Prior to that, it also performs a basic syntax check.
-
-IMPORTANT: this software module was developed for DEMONSTRATION purposes only. It is NOT RECOMMENDED implementing it 1:1 in a productive environment.
-Particularly, I recommend companies to use a local copy of the GCP Length Table (which may include own entries) that is updated in regular (e.g. daily) intervals.
-The latter approach is faster and far more efficient than triggering an online lookup every time the function is called. 
-In this regard, note that the GCP length table at the time of writing this software (July 2020) already is > 5 MB in size.
-
-The function supports all GS1 Keys that are applicable to construct EPC values, specifically: 
-SSCC, GTIN, GDTI, GCN, GINC, GSIN, GLN (for parties and physical locations), GRAI, GIAI, ITIP, CPID, GSRN-P, and GSRN.
-
-'''
 
 gs1KeyRegEx = {
     '00': "^(\d{18})$",
@@ -62,8 +62,13 @@ allGCPs = json.loads(requests.get(
 # Transform JSON structure into list of dictionaries:
 gcpDict = allGCPs["GCPPrefixFormatList"]["entry"]
 
-
 def getGCPLength(aI, gs1Key):
+    """Returns the length of a given GS1 Key.
+
+    Function 'getGCPLength' expects a GS1 Key, prepended with its corresponding GS1 Application Identifier, and returns the corresponding GS1 Company Prefix (GCP) length.
+    hereby, the function triggers an online lookup at GS1's GCP length table residing at https://www.gs1.org/sites/default/files/docs/gcp_length/gcpprefixformatlist.json
+    Prior to that, it also performs a basic syntax check."""
+
     # Check if GS1 Key complies with its corresponding RegEx
     if match(gs1KeyRegEx[aI], gs1Key) is None:
         exit('The GS1 Key has an incorrect length or impermissible characters.')
