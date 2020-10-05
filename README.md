@@ -34,9 +34,9 @@ SSCC, GTIN, GDTI, GCN, GINC, GSIN, GLN (for parties and physical locations), GRA
 You can run the examples via your terminal with:
 ```
 pip3 install -r requirements.txt
-python3 validExamples.py
+python3 examples.py
 ```
-See `validExamples.py` (or `invalidExamples.py`, respectively) for how to use the script.
+See `examples.py` for how to use the script.
 
 ## License
 
