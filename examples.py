@@ -17,6 +17,8 @@ print (gcl.getGCPLength('8004', '0180451111ABC987'))
 print (gcl.getGCPLength('8010', '0628165987'))
 print (gcl.getGCPLength('8017', '440018922222222226'))
 print (gcl.getGCPLength('8018', '385888700111111111'))
+print (gcl.getGCPLength('8004', '425121832999XYZ'))
+print (gcl.getGCPLength('8004', '0425121832999XYZ'))
 
 """ 
 Expected results:
