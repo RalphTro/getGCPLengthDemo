@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>GCP Length Finder</title>
+	<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+	<div id="rounded-rec">
+		<div id="tool">GCP Length Finder</div>
+		<div id="intro">Demo tool for fetching the GS1 Company Prefix (GCP) length, based on GS1's GCP Length Table.
+		</div>
+		<div id="hint">Indicate a GS1 Key type and its value:</div>
+		<div id="specify">
+			<select id="dropdown">
+				<option class="drop-down" value="" disabled selected>Select GS1 Key Type</option>
+				<option class="drop-down" value="00">SSCC</option>
+				<option class="drop-down" value="01">GTIN (with 14 digits)</option>
+				<option class="drop-down" value="253">GDTI</option>
+				<option class="drop-down" value="255">GCN</option>
+				<option class="drop-down" value="401">GINC</option>
+				<option class="drop-down" value="402">GSIN</option>
+				<option class="drop-down" value="414">GLN</option>
+				<option class="drop-down" value="417">PGLN</option>
+				<option class="drop-down" value="8003">GRAI</option>
+				<option class="drop-down" value="8004">GIAI</option>
+				<option class="drop-down" value="8006">ITIP</option>
+				<option class="drop-down" value="8010">CPID</option>
+				<option class="drop-down" value="8017">GSRN Provider</option>
+				<option class="drop-down" value="8018">GSRN Recipient</option>
+			</select>
+			<input type='text' id="input">
+		</div>
+
+		<div id="get-gcp">Get GCP Length</div>
+		<div id="output"></div>
+		<div id="clear">Clear/New</div>
+		<div id="box1" class="box">
+			<div id="box1-heading">Up-to-dateness</div>
+			<div id="gcp-table" class="table-name">This tool's GCP data:</div>
+			<div id="gs1-updated" class="date-output">loading...</div>
+			<div id="global-gcp-table" class="table-name">GS1's present GCP data:</div>
+			<div id="global-gcp-date" class="date-output">loading...</div>
+			<div id="gcp-website-hint" class="table-name">More information:</div>
+			<div id="gcp-website-link" class="date-output">
+				<a href="https://www.gs1.org/standards/bc-epc-interop" target="_blank" rel="noopener noreferrer">Click here</a>
+			</div>
+		</div>
+		</div>
+		<div id="box2" class="box">
+			<div id="box2-heading">Try GS1 Key demo values</div>
+			<div id="gtin" class="demo-button">Global Trade Item Number (GTIN)</div>
+			<div id="sscc" class="demo-button">Serial Shipping Container Code (SSCC)</div>
+			<div id="gln" class="demo-button">Party Global Location Number (PGLN)</div>
+			<div id="giai" class="demo-button">Global Individual Asset Identifier (GIAI)</div>
+			<div id="grai" class="demo-button">Global Returnable Asset Identifier (GRAI)</div>
+			<div id="itip" class="demo-button">Individual Trade Item Piece (ITIP)</div>
+		</div>
+		<div id="footer">&#169; ralphTro | Version 0.2 | Last updated: 2025-01-17</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+
+</html>
