@@ -1,0 +1,381 @@
+body {
+	overflow: hidden;
+	background-color: rgb(224, 241, 247);
+}
+
+.box {
+	display: flex;
+	position: absolute;
+	box-sizing: border-box;
+	align-items: center;
+	justify-content: center;
+	z-index: 9;
+	color: rgb(0, 0, 0);
+	overflow: hidden;
+	background-color: rgb(224, 241, 247);
+	border: solid rgb(0, 0, 0) 1px;
+	border-radius: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 2.83vw;
+	padding: 0px;
+	margin: 0px;
+	user-select: none;
+}
+
+.table-name {
+	display: flex;
+	position: absolute;
+	box-sizing: border-box;
+	align-items: center;
+	justify-content: left;
+	left: 7%;
+	/* width: 30%; */
+	height: 19.99%;
+	z-index: 9;
+	color: rgb(0, 0, 0);
+	overflow: hidden;
+	background-color: rgba(255, 255, 255, 0);
+	border: solid rgb(0, 0, 0) 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.13vw;
+	font-weight: bold;
+	user-select: none;
+}
+
+.date-output {
+	display: flex;
+	position: absolute;
+	box-sizing: border-box;
+	align-items: center;
+	justify-content: left;
+	/* width: 30.00%; */
+	z-index: 9;
+	color: rgb(0, 0, 0);
+	overflow: hidden;
+	background-color: rgba(255, 255, 255, 0);
+	border: solid rgb(0, 0, 0) 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.13vw;
+	user-select: none;
+}
+
+.demo-button {
+	display: flex;
+	position: absolute;
+	box-sizing: border-box;
+	align-items: center;
+	justify-content: center;
+	height: 16%;
+	z-index: 9;
+	color: rgb(0, 0, 0);
+	overflow: hidden;
+	background-color: rgb(71, 249, 224);
+	border: solid rgb(0, 0, 0) 1px;
+	border-radius: 8px;
+	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.13vw;
+	user-select: none;
+}
+
+.drop-down {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1vw;
+}
+
+#rounded-rec {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 3%;
+	left: 2%;
+	width: 96%;
+	height: 94%;
+	z-index: 9;
+	color: rgb(0, 0, 0);
+	overflow: hidden;
+	background-color: rgb(230, 234, 241);
+	border: solid rgb(0, 0, 0) 0px;
+	border-radius: 33px;
+	box-shadow: 11px 11px 11px rgba(0, 0, 0, 0.3);
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 2.83vw;
+	padding: 0px;
+	margin: 0px;
+	user-select: none;
+}
+
+#tool {
+	display: flex;
+	position: absolute;
+	box-sizing: border-box;
+	align-items: center;
+	justify-content: center;
+	top: 5%;
+	left: 3.25%;
+	width: 93.11%;
+	height: 12.5%;
+	z-index: 9;
+	color: rgb(0, 0, 0);
+	overflow: hidden;
+	background-color: rgba(255, 255, 255, 0);
+	border: solid rgb(0, 0, 0) 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 4.11vw;
+	padding: 0px;
+	margin: 0px;
+	user-select: none;
+}
+
+#intro {
+	display: flex;
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 80%;
+	height: auto;
+	z-index: 9;
+	color: rgb(0, 0, 0);
+	overflow: hidden;
+	background-color: rgba(255, 255, 255, 0);
+	border: solid rgb(0, 0, 0) 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.6vw;
+	padding: 0px;
+	margin: 0px;
+	justify-content: center;
+	text-align: center;
+	user-select: none;
+}
+
+#get-gcp {
+	top: 40%;
+}
+
+#clear {
+	top: 50%;
+}
+
+#clear,
+#get-gcp {
+	display: flex;
+	position: absolute;
+	box-sizing: border-box;
+	align-items: center;
+	justify-content: center;
+	left: 2%;
+	width: 20.00%;
+	height: 2.5%;
+	z-index: 9;
+	color: rgb(0, 0, 0);
+	overflow: hidden;
+	background-color: rgb(71, 249, 224);
+	border: solid rgb(0, 0, 0) 1px;
+	border-radius: 12px;
+	box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.6vw;
+	padding: 20px;
+	margin: 10px;
+	user-select: none;
+}
+
+#hint {
+	display: flex;
+	position: absolute;
+	top: 31.3%;
+	left: 2.5%;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.2vw;
+	color: rgb(71, 249, 224);
+	background-color: rgb(0, 0, 0);
+	padding: 5px;
+    border-radius: 3px;
+	font-weight: bold;
+	text-shadow: 1px 1px 2px rgb(255, 255, 255)
+}
+
+#specify {
+	display: flex;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	transform: translateX(-50%);
+	height: auto;
+	z-index: 9;
+	color: rgb(0, 0, 0);
+	overflow: hidden;
+	background-color: rgba(255, 255, 255, 0);
+	border: solid rgb(0, 0, 0) 0px;
+	padding: 0px;
+	margin: 0px;
+	user-select: none;
+}
+
+#dropdown,
+#input {
+	height: 7.97%;
+	margin: 1.5%;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.6vw;
+}
+
+#dropdown {
+	width: auto;
+}
+
+#input {
+	width: 150%;
+}
+
+#output {
+	position: absolute;
+	left: 30%;
+	top: 42%;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 2vw;
+}
+
+#box1 {
+	bottom: 15%;
+	left: 2%;
+	width: 35%;
+	height: 21.1%;
+}
+
+#box2 {
+	bottom: 12%;
+	left: 41%;
+	width: 55%;
+	height: 30%;
+}
+
+#box1-heading {
+	display: flex;
+	position: absolute;
+	box-sizing: border-box;
+	align-items: center;
+	justify-content: center;
+	top: 9%;
+	left: 3%;
+	height: 19.97%;
+	z-index: 9;
+	color: rgb(0, 0, 0);
+	overflow: hidden;
+	background-color: rgba(255, 255, 255, 0);
+	border: solid rgb(0, 0, 0) 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.42vw;
+	user-select: none;
+}
+
+#box2-heading {
+	display: flex;
+	position: absolute;
+	box-sizing: border-box;
+	align-items: center;
+	justify-content: center;
+	top: 9%;
+	left: 3%;
+	/* width: 44.80%; */
+	height: 19.97%;
+	z-index: 9;
+	color: rgb(0, 0, 0);
+	overflow: hidden;
+	background-color: rgba(255, 255, 255, 0);
+	border: solid rgb(0, 0, 0) 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.42vw;
+	user-select: none;
+}
+
+#gcp-table {
+	top: 32%;
+}
+
+#global-gcp-table {
+	top: 52%;
+}
+
+#gcp-website-hint {
+	top: 72%;
+}
+
+#gs1-updated {
+	top: 32%;
+	left: 50%;
+	height: 16.19%;
+}
+
+#global-gcp-date {
+	top: 52%;
+	left: 50%;
+	height: 16.19%;
+}
+
+#gcp-website-link {
+	top: 72%;
+	left: 50%;
+	height: 16.19%;
+}
+
+#gtin {
+	top: 33%;
+	left: 6%;
+	width: 42%;
+}
+
+#sscc {
+	top: 55%;
+	left: 6%;
+	width: 42%;
+}
+
+#grai {
+	top: 77%;
+	left: 6%;
+	width: 42%;
+}
+
+#gln {
+	top: 33%;
+	left: 52%;
+	width: 42%;
+}
+
+#giai {
+	top: 55%;
+	left: 52%;
+	width: 42%;
+}
+
+#itip {
+	top: 77%;
+	left: 52%;
+	width: 42%;
+}
+
+#footer {
+	display: flex;
+	position: absolute;
+	box-sizing: border-box;
+	align-items: center;
+	justify-content: center;
+	/* top: 90%; */
+	bottom: 5%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 34.06%;
+	height: 4.85%;
+	z-index: 9;
+	color: rgb(0, 0, 0);
+	overflow: hidden;
+	background-color: rgba(255, 255, 255, 0);
+	border: solid rgb(0, 0, 0) 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0.85vw;
+	padding: 0px;
+	margin: 0px;
+	user-select: none;
+}
