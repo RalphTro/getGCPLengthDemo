@@ -240,7 +240,7 @@ body {
 	bottom: 15%;
 	left: 2%;
 	width: 35%;
-	height: 21.1%;
+	height: 19%;
 }
 
 #box2 {
@@ -256,7 +256,7 @@ body {
 	box-sizing: border-box;
 	align-items: center;
 	justify-content: center;
-	top: 9%;
+	top: 12%;
 	left: 3%;
 	height: 19.97%;
 	z-index: 9;
@@ -290,31 +290,21 @@ body {
 }
 
 #gcp-table {
-	top: 32%;
-}
-
-#global-gcp-table {
-	top: 52%;
+	top: 40%;
 }
 
 #gcp-website-hint {
-	top: 72%;
+	top: 60%;
 }
 
 #gs1-updated {
-	top: 32%;
-	left: 50%;
-	height: 16.19%;
-}
-
-#global-gcp-date {
-	top: 52%;
+	top: 42%;
 	left: 50%;
 	height: 16.19%;
 }
 
 #gcp-website-link {
-	top: 72%;
+	top: 62%;
 	left: 50%;
 	height: 16.19%;
 }
