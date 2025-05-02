@@ -10,18 +10,6 @@ $(document).ready(function () {
 		$("#gs1-updated").html(date);
 	});
 
-	// Function to fetch the date of the date when GS1's global GCP length table was updated
-	// NOTE: to prevent that the JSON file (Jan 2025: > 15 MB) itself must be loaded for this purpose, we only extract it from GS1's landing page 
-	$.ajax({
-		url: "https://api.allorigins.win/get?url=" + encodeURIComponent("https://www.gs1.org/standards/bc-epc-interop"),
-		success: function (response) {
-			var data = $(response.contents);
-			var date = data.find("#block-gsone-revamp-content .content article .bg-white .container .layout .col-md-12 .block .content div[property='schema:text'] p:contains('Updated') strong font i").text();
-			// console.log("Updated Date: " + date);
-			$("#global-gcp-date").html(date);
-		}
-	});
-
 	// Regular expressions for GS1 keys
 	const gs1KeyRegEx = {
 		'00': /^(\d{18})$/,
