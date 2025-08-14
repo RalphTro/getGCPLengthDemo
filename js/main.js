@@ -102,6 +102,7 @@ $(document).ready(function () {
 		.catch(error => console.error('Error loading JSON file:', error));
 
 	$("#get-gcp").on("click", function () {
+		$("#output").html('');
 		// console.log(getGCPLength($("#dropdown").val(), $("#input").val()))
 		try {
 			$("#output").html(getGCPLength($("#dropdown").val(), $("#input").val()).toString());
@@ -117,31 +118,37 @@ $(document).ready(function () {
 	});
 
 	$("#gtin").on("click", function () {
+		$("#output").html('');
 		$("#input").val('04150999999994');
 		$("#dropdown").val('01');
 	});
 
 	$("#sscc").on("click", function () {
+		$("#output").html('');
 		$("#input").val('340123453111111115');
 		$("#dropdown").val('00');
 	});
 
 	$("#gln").on("click", function () {
+		$("#output").html('');
 		$("#input").val('4280000000002');
 		$("#dropdown").val('417');
 	});
 
 	$("#giai").on("click", function () {
+		$("#output").html('');
 		$("#input").val('425121832999XYZ');
 		$("#dropdown").val('8004');
 	});
 
 	$("#grai").on("click", function () {
+		$("#output").html('');
 		$("#input").val('03870585000552987');
 		$("#dropdown").val('8003');
 	});
 
 	$("#itip").on("click", function () {
+		$("#output").html('');
 		$("#input").val('095211411234540102');
 		$("#dropdown").val('8006');
 	});
